@@ -9,7 +9,7 @@ public class Library{
 
     public void addBook(Book book){
         books.add(book);
-        System.out.println("Add book: "+book);
+        System.out.println("Add book: "+book.getTitle()+" Author: "+book.getAuthor());
         showAll();
     }
 
@@ -23,12 +23,31 @@ public class Library{
                 found = true;
                 break;
             }
-            }
+        }
         if(!found){
             System.out.println("Book not found");
         }
     }
 
+    public void borrowBook(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                book.borrow();
+                return;
+            }
+        }
+        System.out.println("Book not found: " + title);
+    }
+
+    public void returnBook(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                book.returnBook();
+                return;
+            }
+        }
+        System.out.println("Book not found: " + title);
+    }
 
     public boolean searchBook(String name){
         for (Book book:books){
@@ -40,12 +59,12 @@ public class Library{
     }
 
     public void showAll(){
-        System.out.println("--------All Book----------");
+        System.out.println("\n--------All Book----------");
         if(books.isEmpty()){
             System.out.println("No books in library");
         }else {
             for (Book book:books){
-                System.out.println("Title: "+book.getTitle()+" Author: "+ book.getAuthor()+" Status: "+book.isBorrowed());
+                System.out.println(book);
             }
         }
     }

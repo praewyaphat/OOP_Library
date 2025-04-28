@@ -1,6 +1,6 @@
 public class Book implements Borrowable{
-    protected   String title;
-    protected   String author;
+    private String title;
+    private String author;
     private boolean isBorrowed;
 
     public Book(String title, String author){
@@ -17,15 +17,15 @@ public class Book implements Borrowable{
         return author;
     }
 
-    public boolean isBorrowed() {
-        return isBorrowed;
-    }
+//    public boolean isBorrowed() {
+//        return isBorrowed;
+//    }
 
     @Override
     public void borrow(){
         if (!isBorrowed){
-        System.out.println("Book borrowing completed successfully");
-        isBorrowed = true;
+            System.out.println(title + " is borrowing completed successfully");
+            isBorrowed = true;
         }else {
             System.out.println("Book is already borrowed.");
         }
@@ -34,8 +34,8 @@ public class Book implements Borrowable{
     @Override
     public void returnBook(){
         if (isBorrowed){
-        System.out.println("Book return successful");
-        isBorrowed = false;
+            System.out.println("Book return successful");
+            isBorrowed = false;
         }else {
             System.out.println("Book not borrowed");
         }
@@ -43,6 +43,6 @@ public class Book implements Borrowable{
 
     @Override
     public String toString(){
-        return "Title: "+ title +" Author: " + author +" Status: "+isBorrowed;
+        return "Title: "+ title +" | "+ "Author: " + author +" | "+" Status: "+(isBorrowed ? ("Borrowed"):("Available"));
     }
 }

@@ -17,12 +17,12 @@ public class Main {
         System.out.println(library.searchBook("Peter Pan"));
         System.out.println(library.searchBook("Harry Potter"));
 
-        book1.borrow();
-        book1.borrow();
+        library.borrowBook("Harry Potter");
+        library.borrowBook("Harry Potter");
         library.showAll();
 
-        book1.returnBook();
-        book1.returnBook();
+        library.returnBook("Harry Potter");
+        library.returnBook("Harry Potter");
         library.showAll();
     }
 }
